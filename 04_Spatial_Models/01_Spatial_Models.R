@@ -192,8 +192,7 @@ lagmodelIQ5 <- impacts(lagmodel, tr=trMatc, R=200, Q=5)
 ## Trying to run the Dubin model
 #impacts(durbinmodel, tr=trMC) # do not run
 
-## focussing on this now
-## run this when I'm ready
+
 summary(impacts(durbinmodel, tr=trMatc, R=1000), zstats=TRUE, short=TRUE) # this is for type "mixed"
 
 # recieve an error
@@ -204,12 +203,6 @@ ev <- eigenw(queen)
 
 library(corpcor)
 help("make.positive.definite")
-
-## now trying to make everything positive, I think. 
-queennn <- make.positive.definite(queen, tol=1e-3)
-
-
-
 
 ### Trying to reryb things but with a neighbour file
 listw <- spdep::nb2listw(neighbour)
