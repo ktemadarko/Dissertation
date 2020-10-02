@@ -31,7 +31,7 @@ library(ggplot2)
 SpatialData_SpatialPolygon <- readRDS("C:\\Users\\rbarker\\Documents\\1_MSc_Dissertation\\7. Data\\Tidy_Data\\SpatialData_SpatialPolygon.rds")
 neighbour <- read.gal("C:\\Users\\rbarker\\Documents\\1_MSc_Dissertation\\7. Data\\Tidy_Data\\neighbour.gal")
 queen <- readRDS("C:\\Users\\rbarker\\Documents\\1_MSc_Dissertation\\7. Data\\Tidy_Data\\queen.rds")
-proj4string(SpatialData_SpatialPolygon) <- proj4string(SpatialData_SpatialPolygon) # I think this might only work with sp dataframe, not needed anyway (I think)
+proj4string(SpatialData_SpatialPolygon) <- proj4string(SpatialData_SpatialPolygon) )
 shape.ll <- spTransform(SpatialData_SpatialPolygon, CRS("+proj=longlat +datum=WGS84")) # to get long and lat, not needed here
 EW_Variables <- readRDS("C:\\Users\\rbarker\\Documents\\1_MSc_Dissertation\\7. Data\\Tidy_Data\\EW_Variables.rds")
 
@@ -61,7 +61,7 @@ lagvar <- data.frame(TFR,PDENS,INC,NONRG,SOCHO,EDU,
 tiff(file="EW_neighbours.tif",width = 2400, height = 2400, res=300, 
      compression="lzw")
 plot(SpatialData_SpatialPolygon, border="NA")
-plot.nb(neighbour, coords, add=TRUE) #### I adore this! Such fun my good god
+plot.nb(neighbour, coords, add=TRUE) 
 dev.off()
 
 summary(neighbour)
@@ -395,10 +395,6 @@ for (i in 1:m) {
          cex=0.8, bg="white", box.col="white")
 }
 dev.off()
-
-#region can be done by editing / subsetting the shapefile
-#if I have time, move to ggplot
-
 
 ## Now that the national works, we want to see regions. 
 table(EW_Poly$Region)
