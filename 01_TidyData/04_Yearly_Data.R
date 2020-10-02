@@ -11,13 +11,6 @@
 
 
 ########################
-
-
-Yearly_Data
-
-
-
-
 library(tidyverse) 
 library(sf) # for read_sf()
 library(spatialEco) # for sp.na.omit()
@@ -97,11 +90,6 @@ summary(S2011) # gives 8480 characters. I think I need to exclude Scotland/NI
 8480-1327 # gives 7153 (too low) - NA TFRs
 8480-1279 # gives 7201 (the correct number)
 # Conclusion: the calculation above does not allow for 0s. Need to convert NAs to 0s
-
-##### TEMP: FIGURING OUT WHAT WENT WRONG WITH 2016 #####
-
-
-
 
 #### Getting yearly data for Moran's I ####
 ### would need to remove the scilly isles from this ###
@@ -235,12 +223,6 @@ Yearly_ASFR_TFR <- merge(combo, Region_names, by.x="Code", by.y="MSOA11CD.x", al
 Yearly_ASFR_TFR <- rename(Yearly_ASFR_TFR, Region = `Region name`)
 Yearly_ASFR_TFR <- rename(Yearly_ASFR_TFR, Code = `MSOA11CD.x`)
 Yearly_ASFR_TFR <- Yearly_ASFR_TFR[Yearly_ASFR_TFR$Code != "E02006781",]
-
-### combining Yearly_ASFR_TFR with spatial data ###
-## spatialpolygon ##
-#Yearly_ASFR_TFR_SpatialPolygon <- merge(Eng_Wal_SpatialPolygon, Yearly_ASFR_TFR, by.x="code", by.y="Code", all.x=TRUE)
-#Yearly_ASFR_TFR_SpatialPolygon <- Yearly_ASFR_TFR_SpatialPolygon[Yearly_ASFR_TFR_SpatialPolygon$code != "E02006781",]
-#Yearly_ASFR_TFR_SpatialPolygon <- na.omit(Yearly_ASFR_TFR_SpatialPolygon) # I think this may cause some issues
 
 ## SP Dataframe ##
 Yearly_ASFR_TFR_Dataframe <- merge(Eng_Wal_SP_Dataframe, Yearly_ASFR_TFR, by.x="code", by.y="Code", all.x=TRUE) # spatialpolydataframe
