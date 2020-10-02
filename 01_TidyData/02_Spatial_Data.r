@@ -66,48 +66,25 @@ queen <- nb2listw(neighbour, style="W", zero.policy = TRUE) # define weights
 #summary(queen)
 
 
-#### Testing weights matrix now fully correct ####
-moranI.0709 <- moran.mc(SpatialData_SpatialPolygon$TFR, queen, 100, zero.policy = FALSE) # 0.3167 - strange, got a different number
-moranI.0709 <- moran.mc(EW_Variables$TFR, queen, 5, zero.policy = FALSE) # 0.3142 - strange, got a different number
-
-
 # Polygon neigbours, neighbours matrix is right
 coords.polygon <- coordinates(SpatialData_SpatialPolygon)
 tiff(file="neighbourhood_0709.png",width = 2400, height = 2400, res=300, 
      compression="lzw")
 plot(SpatialData_SpatialPolygon, border="darkgrey")
-plot.nb(neighbour, coords.polygon, add=TRUE) #### I adore this! Such fun my good god
+plot.nb(neighbour, coords.polygon, add=TRUE) 
 # text(coords-0.07, paste(id), cex=0.8, col="red") # avoid this
 dev.off()
 
-
-### Okay, 15 more minutes. No, accept that you once saw high Moran's I, and you cannot remember how it happened.
-## I realised, we can check the file 
 ## by adding numbers to the file, add row numbers
 SpatialData_SpatialPolygon$row_num <- seq.int(nrow(SpatialData_SpatialPolygon)) 
 SpatialData_SpatialPolygon$row_num <- as.character(SpatialData_SpatialPolygon$row_num)
 summary(SpatialData_SpatialPolygon)
-## This gives Moran's I of 0.8667, about as high as we can get.The values I saw once must have been an error. 
-## So, we are right. It is all fine. 
-## I have had a long day, so I'll go home, proof read, no, I'll stay in the office
-
-
-
-### This is useful 
-https://rspatial.org/analysis/analysis.pdf
 
 
 
 
 
 
-
-
-
-
-
-
-################################# NOT USEFUL
 
 
 ### simpler appraoch
@@ -139,7 +116,7 @@ row.names(as(Eng_Poly_SpatialPolygon1, "data.frame"))
 
 
 
-### Testing just with ENgland, as if England alone, it should work, right?
+### Testing just with ENgland
 Eng_Poly_SpatialPolygon <- shapefile("England_MSOA.shp", stringsAsFactors = TRUE)
 England <- EW_Variables[EW_Variables$Region != "Wales",]
 England_Spatial <- merge(Eng_Poly_SpatialPolygon, England, by.x=c('code'), by.y=c('Code'))
@@ -164,8 +141,6 @@ moranI.0709 <- moran.mc(England_Spatial$TFR, queen, 100, zero.policy = FALSE) ##
 
 
 
-
-###### ALL A MESS - SO I GO TO GEODA, RUN ENGLAND ALONE WITH DATA, AND SEE IF THE SAME,
 writeOGR(obj=England_Spatial, dsn="C:\\Users\\rbarker\\Documents\\1_MSc_Dissertation\\7. Data\\01_TidyData", layer="SpatialData_SpatialPolygon", driver="ESRI Shapefile") # this is in geographical projection
 ??writeOGR
 
@@ -315,43 +290,3 @@ plot(shape.shp.nb, col=color)
 title("Neighbors per regions")
 legend("right",fill=colpal, legend=c(paste(c(0:7)),">7"),
        cex=1, bg="white")
-
-
-
-
-
-
-################ Mapping Local Moran's I ##############################
-#### LAD ####
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#### MSOA ####W
