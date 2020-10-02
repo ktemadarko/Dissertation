@@ -36,7 +36,7 @@ S2011 = LSOA_Combined %>% group_by(MSOA11CD.x) %>%
   summarise(B15 = sum(`15_24_2011.births`), B25 = sum(`25_34_2011.births`), B35 = sum(`35_44_2011.births`), 
             P15 = sum(`15_24_2011.women`), P25 = sum(`25_34_2011.women`), P35 = sum(`35_44_2011.women`),
             ASFR15 = sum(B15/P15), ASFR25 = sum(B25/P25), ASFR35 = sum(B35/P35))
-S2011$ASFR15[is.na(S2011$ASFR15)] <- 0 # for ASFR15, so it doesn't mess up calculations
+S2011$ASFR15[is.na(S2011$ASFR15)] <- 0 # for ASFR15
 S2011$TFR <- (S2011$ASFR15+S2011$ASFR25+S2011$ASFR35)*10
     
 
