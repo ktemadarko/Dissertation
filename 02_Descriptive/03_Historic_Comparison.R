@@ -520,20 +520,3 @@ ggplot(S2018, aes(Region, TFR)) +
 dev.off()
 
 
-
-# this is bad, ignore for now.
-#### Just testing stuff out ####
-Facet_wrapped <- ggplot(shape.shp, aes(x=TFR)) +
-  geom_histogram(aes(fill = ..count..), binwidth=.1) +
-  scale_fill_gradient("Count", low = "yellow", high = "red") +
-  scale_x_continuous(name = "TFR", limits = c(0, 5)) +
-  scale_y_continuous(name = "Count of values", limits = c(0, 1000)) +
-  geom_vline(aes(xintercept=mean(TFR)),color="blue", linetype="dashed", size=1)+
-  facet_grid(year ~ .)
-
-#### had to make year a character
-shape.shp %>%
-  ggplot(aes(x=TFR, fill=yearr))+
-  geom_density(alpha=0.5)+
-  scale_x_log10()+
-  labs(x="TFR")
