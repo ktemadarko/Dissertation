@@ -1,0 +1,28 @@
+Variable,Overall. (n. 7200),Global Moran’s I
+Education,,0.66266***
+Mean (SD),0.292 (0.124),
+Range,0.051 - 0.803,
+Pakistani,,0.62856***
+Mean (SD),0.020 (0.061),
+Range,0.000-0.794,
+Bangladeshi,,0.67522***
+Mean (SD),0.008 (0.029),
+Range,0.000 – 0.743,
+Black African,,0.77529***
+Mean (SD),0.020 (0.028),
+Range,0.000 – 0.431,
+Net Weekly Income (£),,0.66819***
+Mean (SD),731.360 (190.061),
+Range,300.000 - 1730.000,
+Population Density (non-logarithmic) ,,0.73903***
+Mean (SD),3157.226 (3396.420),
+Range,5.672 - 24715.644,
+Social Housing,,0.34774***
+Mean (SD),0.174 (0.132),
+Range,0.002 - 0.794,
+Divorce,,0.44204***
+Mean (SD),0.091 (0.020),
+Range,0.014 - 0.184,
+Non-Religious,,0.69668***
+Mean (SD),0.252 (0.074),
+Range,0.018 - 0.576,

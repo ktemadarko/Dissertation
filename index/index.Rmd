@@ -1,0 +1,130 @@
+---
+title: 'The spatial autocorrelation of fertility outcomes within England and Wales at the neighbourhood level'
+author: 'Ross Barker'
+date: '2019/2020'
+institution: 'University of Southampton'
+division: 'Division of Social Statistics and Demography Social Sciences, Faculty of Social, Human and Mathematical Sciences'
+advisor: 'Dr. Jason Hilton'
+department: 'Social Statistics and Demography Social Sciences'
+degree: 'MSc Demography'
+knit: bookdown::render_book
+site: bookdown::bookdown_site
+header-includes:
+- \usepackage{pdflscape}
+- \newcommand{\blandscape}{\begin{landscape}}
+- \newcommand{\elandscape}{\end{landscape}}
+# This will automatically install the {remotes} package and {thesisdown}
+# Change this to FALSE if you'd like to install them manually on your own.
+params:
+  'Install needed packages for {thesisdown}': True
+  
+# Remove the hashtag to specify which version of output you would like.
+# Can only choose one at a time.
+output:
+  thesisdown::thesis_pdf: default 
+#  thesisdown::thesis_gitbook: default         
+#  thesisdown::thesis_word: default
+#  thesisdown::thesis_epub: default
+
+# If you are creating a PDF you'll need to write your preliminary content 
+# (e.g., abstract, acknowledgements) below or use code similar to line 25-26 
+# for the .RMD files. If you are NOT producing a PDF, delete or silence
+# lines 25-39 in this YAML header.
+abstract: '`r if(knitr:::is_latex_output()) paste(readLines(here::here("prelims", "00-abstract.Rmd")), collapse = "\n  ")`'
+# If you'd rather include the preliminary content in files instead of inline
+# like below, use a command like that for the abstract above.  Note that a tab 
+# is needed on the line after the `|`.
+acknowledgements: |
+  Thank you to my dissertation supervisor Dr. Jason Hilton for guiding and supporting this research. Thanks is also due to those who have published R code online relating to spatial econometrics.
+
+# Specify the location of the bibliography below
+bibliography: bib/thesis.bib
+link-citations: yes
+# Download your specific csl file and refer to it in the line below.
+csl: csl/apa.csl
+lot: true
+lof: true
+---
+
+<!--
+Above is the YAML (YAML Ain't Markup Language) header that includes a lot of 
+metadata used to produce the document.  Be careful with spacing in this header!
+
+If you'd prefer to not include a Dedication, for example, simply delete the section entirely, or silence them (add # before each line). 
+
+If you have other LaTeX packages you would like to include, delete the # before header-includes and list the packages after hyphens on new lines.
+
+If you'd like to include a comment that won't be produced in your resulting file enclose it in a block like this.
+
+If you receive a duplicate label error after knitting, make sure to delete the index.Rmd file and then knit again.
+-->
+
+
+```{r include_packages, include=FALSE}
+# This chunk ensures that the thesisdown package is
+# installed and loaded. This thesisdown package includes
+# the template files for the thesis.
+if (!require(remotes)) {
+  if (params$`Install needed packages for {thesisdown}`) {
+    install.packages("remotes", repos = "https://cran.rstudio.com")
+  } else {
+    stop(
+      paste('You need to run install.packages("remotes")",
+            "first in the Console.')
+    )
+  }
+}
+if (!require(thesisdown)) {
+  if (params$`Install needed packages for {thesisdown}`) {
+    remotes::install_github("ismayc/thesisdown")
+  } else {
+    stop(
+      paste(
+        "You need to run",
+        'remotes::install_github("ismayc/thesisdown")',
+        "first in the Console."
+      )
+    )
+  }
+}
+library(thesisdown)
+library(knitr)    # For knitting document and include_graphics function
+library(ggplot2)  # For plotting
+library(png)
+# Set how wide the R output will go
+options(width = 70)
+```
+
+<!--
+The ackowledgements, preface, dedication, and abstract are added into the PDF
+version automatically by inputing them in the YAML at the top of this file.
+Alternatively, you can put that content in files like 00--prelim.Rmd and
+00-abstract.Rmd like done below.
+-->
+
+
+
+```{r eval=!knitr::is_latex_output(), child=here::here("prelims", "00--prelim.Rmd")}
+
+```
+
+```{r eval=!knitr::is_latex_output(), child=here::here("prelims", "00-abstract.Rmd")}
+
+```
+
+<!-- The {.unnumbered} option here means that the introduction will be 
+"Chapter 0." You can also use {-} for no numbers on chapters.
+-->
+
+# Introduction {.unnumbered}
+The influence of space has been studied at the micro, meso and macro level in addressing all areas of fertility. The aggregate scale partly loses individual-level processes, but the individual scale lacks geographical detail to measure diffusion over space. Demography has long being referred to as a spatial social science [@voss2007], and the role of space appears to be increasingly complicated and heterogenic, and becoming increasingly studied within Demography. The ideas of a neighbour and neighbourhood are used in this dissertation as the agents in the spatial processes of fertility. A neighbourhood is a collection of individuals and households who host similarities in proximity and sociodemographic traits. Due to neighbourhood proximity, individuals within bordering neighbourhoods influence one another through communication. Currently, the scale of high-quality data available for fertility research is mostly at the individual, social network, regional and national level, with a previously lacking middle-ground of ‘neighbourhood’. Here the neighbourhood is taken to be a Middle Super Output Area (MSOA), of which there are 7,201 in England and Wales, and defined as areas of roughly 7,800 individuals and a median size of 3.3km2 in 2011. Both England and Wales have avoided the falls in Total Fertility Rate (TFR) that lead to panic regarding population ageing and decline as seen in Central Europe, Southern Europe and East Asia. When discussing national outcomes, micro and meso processes are confounded into a TFR that paints a clear but often misleading picture; and examining within-country and within-region variation clarifies the determinants of fertility intentions and behaviours.
+
+In approaching the analysis of fertility from the neighbourhood scale, the spatial processes, and apparent effects of non-spatial determinants of fertility differ than when measured regionally or nationally. Caveats to fertility-based research are dependent on the type of data used. The neighbourhood scale reduces the gap between the individual and the aggregate, allowing for space to be included within a model that is more detailed than the regional, but less detailed than the household level. The change of level is closer to the processes of spatial interaction and diffusion that a regional approach overlooks and potentially misidentifies. By doing so, the aggregation of households and individuals to the neighbourhood level leads to diffusion of ideas being measurable. Dependent on diffusion processes, communication itself is tentatively expected to aid in the understanding of regional patterns. This communication and social network effects are summarised by the term ‘social contagion’. 
+
+Regional patterns aid in the explanation of national outcomes [@snyder2001]. Focus on the regional has long-been practiced and is deemed important within Demography [@watkins2014], yet, the sub-regional scale of analysis is not equally studied, perhaps due to lack of data or the assumption of grandiose processes that need to be explored on the small-scale. While many regional European studies have modelled the spatial dependency of fertility, geographies and methodologies are not sufficient in addressing the social networks central to diffusionist theory. Often, important model diagnostics appear to be excluded from the spatial model-building processes. Diffusion is largely associated with fertility decline, yet, ongoing social network effects are both negative and positive. Sub-regional analysis, and the comparison of model performance, is expected to aid in the regional, and in turn, national explanations of fertility. 
+
+In testing the accuracy of statements above, individual-level census data is used to source six of the seven explanatory variables used in this dissertation. The other variable, Income, is an estimation sourced from the Office for National Statistics (ONS). The number of births by area and age are also sourced from the ONS through birth registration data. The modelling is restricted to the year 2011 due to the reliance on census data. The model-building process is not only led by reasoning relating the spatial element of fertility; the lack of a spatial term within Ordinary Least-Squares (OLS) regression violates the assumption that each observation is independent of other observations. Spatial models are necessary when using sub-regional aggregate data with neighbours particularly when fertility is heavily influenced by space. The appropriate models tested here are four autoregressive models, with the spatial element being related to the dependent variable (endogenous interaction effects), the error in the model (interaction effects in the error term), the explanatory variables (exogenous interaction effects) or a combination/hybrid of multiple. The variables included in the model are: university-educated women, high-TFR ethnicities, net weekly income, population density, prevalence of divorce, social housing and non-religiousness.
+
+There are few examples of research at this scale particularly within the United Kingdom (UK), while European Union (EU) wide approaches are common. Previous research using spatial modelling largely addresses historical demography and the diffusion of norms. Regional-level models including spatial interactions in current research are often limited, but do show the significant diffusion of fertility trends between regions with various spatial models [@waldorf2002; @vitali2017; @campisi2020]. Despite many model options, the Spatial Lag model, also called the mixed regressive-spatial autoregressive model takes a forefront in analyses.
+
+The primary aim of this dissertation is to identify to what extent low-level geography matters in understanding fertility through spatial autocorrelation, a term interchangeable with spatial dependence. That is, I am to identify how one neighbourhood ‘affects’ its neighbour. I tentatively hypothesise that spatial dependence will not be eliminated by the addition of variables above into an OLS model, and that including the spatial autocorrelation of TFR within the model will be necessary and methodologically sound. This dissertation is structured as follows. Following a summary of the literature (2), the aims and objectives (3) look back to the previous section and identify unanswered questions. The variables to include within the model are then collected and justified (4). The data sources and calculations (5 & 6) follow with the formulae and tests necessary in spatial econometrics. The results (7) are structured by the descriptive results, three research questions and a comparison of the models’ capabilities. Finally, the limitations (8) and discussion (9) bring together the results alongside the individual research questions in line with the model of best-fit. 

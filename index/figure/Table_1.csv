@@ -1,0 +1,8 @@
+Variable,Description,Calculation,Source
+Education,The percentage of women aged 25-44 who have university-level education and above,Female population with a degree or higher25-44 / Total female population25-44,Census 2011
+Ethnicity,"The percentage of women aged 15-44 who are Pakistani, Bangladeshi, or Black African (each ethnicity is a separate variable)",Female population of certain ethnicity15-44 / Total female population­15-44,Census 2011
+Income,Average net weekly income (£),Unchanged,"ONS, 2020"
+Population density,The number of people per 1km2,Total population / Polygon size (km2),Census 2011 & Polygon file
+Divorce,The percentage of the population aged 16 and above that are divorced,Total population divorced16+ / Total population16+,Census 2011
+Social Support,The proportion of dwellings (excluding non-residential buildings) that are socially rented,Dwellings socially rented / Total dwellings,Census 2011
+Non-religious ,The percentage of the population who are non-religious,Total population Non-religious / Total population,Census 2011

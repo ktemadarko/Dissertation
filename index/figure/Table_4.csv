@@ -1,0 +1,7 @@
+Test,MC Results,Detection
+Determinant |X'X|,0.0427,0
+Farrar Chi-Square,22531.3604,1
+Red Indicator,0.2916,0
+Sum of Lambda Inverse,17.6465,0
+Theil's Method,0.7224,1
+Condition Number,36.9762,1

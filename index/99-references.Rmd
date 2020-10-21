@@ -1,0 +1,54 @@
+<!--
+The bib chunk below must go last in this document according to how R Markdown renders.  More info is at http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html
+-->
+
+\backmatter
+
+<!-- 
+If you'd like to change the name of the bibliography to something else,
+delete "References" and replace it.
+-->
+
+# References {-}
+<!--
+This manually sets the header for this unnumbered chapter.
+-->
+\markboth{References}{References}
+<!--
+To remove the indentation of the first entry.
+-->
+\noindent
+
+<!--
+To create a hanging indent and spacing between entries.  These three lines may need to be removed for styles that don't require the hanging indent.
+-->
+
+\setlength{\parindent}{-0.20in}
+\setlength{\leftskip}{0.20in}
+\setlength{\parskip}{8pt}
+
+
+<!--
+This is just for testing with more citations for the bibliography at the end.  Add other entries into the list here if you'd like them to appear in the bibliography even if they weren't explicitly cited in the document.
+-->
+
+Bivand, R. 2019. Analysis of Spatial Data. [Online]. https://cran.r-project.org/web/views/Spatial.html.
+
+ONS. 2018. Live births by age of mother, 2000 to 2016: England and Wales. Online. Available from: https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/adhocs/008072livebirthsbyageofmotherandfather2000to2016englandandwales.
+
+
+ONS, 2019a. Birth characteristics in England and Wales: 2017. [Online]. https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/bulletins/birthcharacteristicsinenglandandwales/2017.
+
+ONS, 2019b. Births by Lower layer Super Output Area (LSOA), England and Wales, mid-year 2001 to 2018. [Online]. https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/adhocs/10773birthsbylowerlayersuperoutputarealsoaenglandandwalesmidyear2001to2018.
+
+ONS, 2020a. Income estimates for small areas, England and Wales. [Online]. https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/datasets/smallareaincomeestimatesformiddlelayersuperoutputareasenglandandwales
+
+ONS, 2020b. Lower layer Super Output Area Population estimates. [Online]. https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/lowersuperoutputareamidyearpopulationestimates.
+
+ONS. 2016. Census geography: An overview of the various geographies used in the production of statistics collected via the UK census. [Online]. https://www.ons.gov.uk/methodology/geography/ukgeographies/censusgeography
+
+ONS. 2018. Live births by age of mother, 2000 to 2016: England and Wales. [Online]. Available from: https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/adhocs/008072livebirthsbyageofmotherandfather2000to2016englandandwales.
+
+Fiori, F. 2020. Social disparities in residential mobility and children’s outcomes in early and middle childhood. Presentation at the British Population Society for Population Studies, 2020.
+
+Jaadla, Ried, Garrett. 2020. Continuity and change in spatial patterns in UK fertility: the case of London. Presentation at the British Population Society for Population Studies BSPS Conference, 2020. Online.
